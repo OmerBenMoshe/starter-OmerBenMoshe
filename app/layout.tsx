@@ -16,11 +16,16 @@ export const metadata: Metadata = {
   title: 'Digital Product Jam Starter Kit',
   description: 'A starter kit for wiritng code in the Digital Product Jam course.',
 }
+
 export default function RootLayout({ children } : { children: ReactNode }) {
   const bodyClassNames = `${ubuntu.variable} ${process.env.CSS_DEBUG}`
   return (
     <html>
+      <body>
+        <div>
           {children}
+        </div>
+      </body>
     </html>
   )
 }
