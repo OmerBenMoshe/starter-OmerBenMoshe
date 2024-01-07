@@ -1,54 +1,58 @@
-import WebsiteScreen from '@/lib/components/website-screen';
-import { COURSE_WELCOME_TEXT } from '@/lib/config';
-import Image from 'next/image';
-import Link from 'next/link';
+'use client';
+import { useState } from 'react';
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(true); // Define a state
+  const [isDefaultColor, setDefaultColor] = useState(true);
+
+  const toggleVisibility = () => { // Define a function to toggle the state
+    setIsVisible(!isVisible);
+  };
+
+  const changeBackground = () => {
+    setDefaultColor(!isDefaultColor);
+    const newBackgroundColor = isDefaultColor ? 'lightcoral' : 'rgb(73, 195, 201)';
+    const newTextColor = isDefaultColor ? 'blue' : 'rgb(45, 43, 43)';
+
+    // Update the CSS variable value
+    document.documentElement.style.setProperty('--light', newBackgroundColor);
+    document.documentElement.style.setProperty('--dark', newTextColor);
+  };
+
   return (
-    <WebsiteScreen>
-      <div className="grid">
-        <div className="center padding-2 text-xl">
-          <span>
-            {COURSE_WELCOME_TEXT}
-          </span>
+    <div>
+      <button onClick={toggleVisibility}>Toggle visibility</button> {/* Add a button to trigger the function */}
+      <button onClick={changeBackground}>Toggle Background color</button> {/* Add a button to trigger the function */}
+      <div id="content">
+        <div id="text-content">
+          {
+            isVisible && ( // Use the state to conditionally render the elements
+              <>
+                <h1>This Is The Title Of My Page</h1>
+                <p>this is the <strong>first</strong> paragph of the page</p>
+                <ul>
+                  <li>this is an item in a list</li>
+                  <li>this is an item in a list</li>
+                </ul>
+                <p>This is the <em>second</em> paragraph and its under div</p>
+                <p>
+                  This Paragraph will be about Youtube.
+                  <br />
+                  This is the Youtube Logo:
+                </p>
+                <br />
+                <img src='https://img.freepik.com/premium-vector/red-youtube-logo-social-media-logo_197792-1803.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1704326400&semt=ais'
+                  alt='YT logo' height={150} width={150} />
+                <p>and this is a link to <a href='https://www.youtube.com/'>Youtube</a></p>
+              </>
+            )
+          }
         </div>
-        <div className="center padding-2">
-          <Image
-            src="/huji.png"
-            alt="HUJI Logo"
-            width={320}
-            height={100}
-            priority
-          />
-        </div>
-        <div className="center padding-2">
-          <Image
-            src="/bezalel.png"
-            alt="Bezalel Logo"
-            className="item"
-            width={320}
-            height={100}
-            priority
-          />
-        </div>
-        <div>
-          <h1 className="center text-xxxl">
-            Lorem Ipsum
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus sit amet nunc nec vehicula. Fusce ornare nec nulla non imperdiet. Fusce vel sodales justo. Sed efficitur arcu lorem, at iaculis odio ultricies et. Duis rutrum urna nec elit bibendum, sed hendrerit nulla posuere. Vestibulum vestibulum, ante non tincidunt posuere, dui arcu lacinia nisl, nec rhoncus massa arcu ac ipsum. Nam congue interdum tortor, eu dignissim massa scelerisque vitae. Sed ultricies bibendum congue. Praesent non magna id ligula maximus luctus. Donec vitae nibh quis neque luctus sagittis et eget nunc. Aliquam id ullamcorper lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur tempor quis dolor a lacinia.
-          </p>
-          <ul>
-            <li>Aliquam maximus tellus sed lacus venenatis, ac cursus eros mollis.</li>
-            <li>In id ante sed sem pharetra molestie et vitae arcu.</li>
-            <li>Cras pharetra turpis at pretium elementum.</li>
-            <li>Donec ultrices felis vel lectus auctor iaculis.</li>
-          </ul>
-          <p>
-            See our <Link target="_blank" href="https://github.com/digital-product-jam-2024/course/tree/main/reference">Reference Material</Link> on <Link target="_blank" href="https://github.com/digital-product-jam-2024/course/blob/main/reference/html.md">HTML</Link>, <Link target="_blank" href="https://github.com/digital-product-jam-2024/course/blob/main/reference/css.md">CSS</Link>, and <Link target="_blank" href="https://github.com/digital-product-jam-2024/course/blob/main/reference/javascript.md">JavaScript</Link>.
-          </p>
+        <div id='iframe-div'>
+          <p>Here is some info about Youtube.</p>
+          <iframe src="https://en.wikipedia.org/wiki/YouTube" width="500" height="300" title='youtube wiki'></iframe>
         </div>
       </div>
-    </WebsiteScreen>
+    </div>
   )
 }
