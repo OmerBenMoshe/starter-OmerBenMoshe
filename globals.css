@@ -42,8 +42,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --primary: rgb(5, 190, 113);
   --secondary: rgb(210, 166, 234);
   --primary-variant:  rgb(5, 181, 108);
-  --link: rgb(149, 11, 11);
-  --light: rgb(73, 195, 201);
+  --link: rgb(184, 115, 51);
+  --light:rgb(1,77,94);
   --dark: rgb(45, 43, 43);
   /* --debug: rgb(239, 6, 72);
   --gray: rgb(223, 222, 223);
@@ -66,6 +66,7 @@ body {
   font-family: var(--font-ubuntu);
   color: var(--dark);
   background-color: var(--light);
+  margin: 20px;
 }
 
 a {
@@ -101,6 +102,7 @@ button, a.button {
 
 h1{
   font-size: 35px;
+  text-align: center;
 }
 p{
   font-family: cursive;
@@ -112,4 +114,31 @@ p{
 
 #text-content, #iframe-div {
   flex: 1;
+}
+#text-content {
+  margin-right: auto;
+  margin-left: 50px;
+  /* border: 20px solid;
+  background-color: white; */
+}
+
+button{
+  align-self: start;
+  margin: 10px;
+  background-color: var(--link);
+  color: var(--light);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Adjust as needed */
+  opacity: 0.75;
+}
+.centered {
+  text-align: center;
 }

@@ -11,7 +11,7 @@ export default function Home() {
 
   const changeBackground = () => {
     setDefaultColor(!isDefaultColor);
-    const newBackgroundColor = isDefaultColor ? 'lightcoral' : 'rgb(73, 195, 201)';
+    const newBackgroundColor = isDefaultColor ? 'lightcoral' : 'rgb(1,77,94)';
     const newTextColor = isDefaultColor ? 'blue' : 'rgb(45, 43, 43)';
 
     // Update the CSS variable value
@@ -21,14 +21,16 @@ export default function Home() {
 
   return (
     <div>
-      <button onClick={toggleVisibility}>Toggle visibility</button> {/* Add a button to trigger the function */}
-      <button onClick={changeBackground}>Toggle Background color</button> {/* Add a button to trigger the function */}
+      <h1>This Is The Title Of My Page</h1>
+      <div id="buttonContainer" className="centered">
+        <button onClick={toggleVisibility}>Toggle Text visibility</button> {/* Add a button to trigger the function */}
+        <button onClick={changeBackground}>Change Background color</button> {/* Add a button to trigger the function */}
+      </div> 
       <div id="content">
         <div id="text-content">
           {
             isVisible && ( // Use the state to conditionally render the elements
               <>
-                <h1>This Is The Title Of My Page</h1>
                 <p>this is the <strong>first</strong> paragph of the page</p>
                 <ul>
                   <li>this is an item in a list</li>
@@ -43,7 +45,7 @@ export default function Home() {
                 <br />
                 <img src='https://img.freepik.com/premium-vector/red-youtube-logo-social-media-logo_197792-1803.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1704326400&semt=ais'
                   alt='YT logo' height={150} width={150} />
-                <p>and this is a link to <a href='https://www.youtube.com/'>Youtube</a></p>
+                <p>and this is a link to <a href='https://www.youtube.com/' target='_blank'>Youtube</a></p>
               </>
             )
           }
