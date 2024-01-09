@@ -21,6 +21,10 @@ export default function RootLayout({ children } : { children: ReactNode }) {
   const bodyClassNames = `${ubuntu.variable} ${process.env.CSS_DEBUG}`
   return (
     <html>
+      <head>
+        <link href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Raleway:100,500,600,800' rel='stylesheet'/>
+        <link rel='stylesheet' href='style.css'/>
+      </head>
       <body>
         <div>
           {children}
