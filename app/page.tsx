@@ -21,9 +21,11 @@ export default function Home() {
 
   return (
     <div>
-      <h1>This Is The Title Of My Page</h1>
+      <header>
+        <h1>This Is The Title Of My Page</h1>
+      </header>
       <div id="buttonContainer" className="centered">
-        <button onClick={toggleVisibility}>Toggle Text visibility</button> {/* Add a button to trigger the function */}
+        <button id='text-button' onClick={toggleVisibility}>Toggle Text visibility</button> {/* Add a button to trigger the function */}
         <button onClick={changeBackground}> Background color</button> {/* Add a button to trigger the function */}
       </div> 
       <div id="content">

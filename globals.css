@@ -103,10 +103,18 @@ button, a.button {
   cursor: pointer;
 }
 
-
 h1{
-  font-size: 35px;
+  font-size: 50px;
   text-align: center;
+  
+}
+header {
+  /* border: solid 1px; */
+  background-color: maroon;
+  width: 100%;
+  height: 75px;
+  text-align: center;
+  text-shadow: antiquewhite;
 }
 p{
   font-family: cursive;
@@ -145,4 +153,8 @@ button{
 }
 .centered {
   text-align: center;
+}
+#text-button {
+  position: relative;
+  right: 375px;
 }
