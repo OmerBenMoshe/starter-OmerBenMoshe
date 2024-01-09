@@ -11,12 +11,12 @@ export default function Home() {
 
   const changeBackground = () => {
     setDefaultColor(!isDefaultColor);
-    const newBackgroundColor = isDefaultColor ? 'lightcoral' : 'rgb(1,77,94)';
-    const newTextColor = isDefaultColor ? 'blue' : 'rgb(45, 43, 43)';
+    const newBackgroundColor = isDefaultColor ? 'var(--background-color-two)' : 'var(--background-color-one)';
+    const newTextColor = isDefaultColor ? 'var(--text-color-two)' : 'var(--text-color-one)';
 
     // Update the CSS variable value
-    document.documentElement.style.setProperty('--light', newBackgroundColor);
-    document.documentElement.style.setProperty('--dark', newTextColor);
+    document.documentElement.style.setProperty('--background-color', newBackgroundColor);
+    document.documentElement.style.setProperty('--text-color', newTextColor);
   };
 
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       <h1>This Is The Title Of My Page</h1>
       <div id="buttonContainer" className="centered">
         <button onClick={toggleVisibility}>Toggle Text visibility</button> {/* Add a button to trigger the function */}
-        <button onClick={changeBackground}>Change Background color</button> {/* Add a button to trigger the function */}
+        <button onClick={changeBackground}> Background color</button> {/* Add a button to trigger the function */}
       </div> 
       <div id="content">
         <div id="text-content">
